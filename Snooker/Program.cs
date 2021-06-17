@@ -43,6 +43,39 @@ namespace Snooker
 
             //6. feladat
             Console.WriteLine($"6. feladat: A versenyzők között {(Players.Any(x => x.Country == "Norvégia") ? "van" : "nincs")} norvég versenyző");
+
+            //7. feladat (Dictionary)
+            Console.WriteLine($"7. feladat: Statisztika (Dictionary)");
+            Dictionary<string, int> Statisztika = new Dictionary<string, int>();
+
+            foreach (var p in Players)
+            {
+                if (!Statisztika.ContainsKey(p.Country))
+                {
+                    Statisztika.Add(p.Country, 1);
+                }
+                else
+                {
+                    Statisztika[p.Country]++;
+                }
+            }
+
+            foreach (var s in Statisztika)
+            {
+                if (s.Value > 4)
+                {
+                    Console.WriteLine($"\t {s.Key} - {s.Value} fő");
+                }
+            }
+
+            //7. feladat (Linq)
+            Console.WriteLine($"7. feladat: Statisztika (Linq)");
+            Players
+                .GroupBy(x => x.Country)
+                .Select(group => new { Country = group.Key, Count = group.Count() })
+                .Where(x => x.Count > 4)
+                .ToList()
+                .ForEach(x => Console.WriteLine($"\t {x.Country} - {x.Count} fő"));
         }
     }
 }
