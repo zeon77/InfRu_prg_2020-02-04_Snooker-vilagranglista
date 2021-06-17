@@ -41,6 +41,8 @@ namespace Snooker
             Console.WriteLine($"\t Ország: {BestChinesePlayer.Country}");
             Console.WriteLine($"\t Nyeremény összege: {(BestChinesePlayer.Income * 380):n0} Ft");
 
+            //6. feladat
+            Console.WriteLine($"6. feladat: A versenyzők között {(Players.Any(x => x.Country == "Norvégia") ? "van" : "nincs")} norvég versenyző");
         }
     }
 }
