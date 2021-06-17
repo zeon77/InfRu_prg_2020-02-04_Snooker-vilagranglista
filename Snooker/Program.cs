@@ -17,6 +17,10 @@ namespace Snooker
 
             //3. feladat
             Console.WriteLine($"3. feladat: A világranglistán {Players.Count} versenyző szerepel");
+
+            //4. feladat
+            Console.WriteLine($"4. feladat: A versenyzők átlagosan {Players.Average(x => x.Income):0.00} fontot kerestek.");
+
         }
     }
 }
